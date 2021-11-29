@@ -1,0 +1,28 @@
+server:
+  port: 8022
+spring:
+  #给项目来个名字
+  application:
+    name: rabbitmq-consumer
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: 192.168.0.153
+    port: 5672
+    username: lg
+    password: 123456
+
+
+rabbitmq:
+  test-direct:
+    queue: TestDirectQueue
+    exchange: TestDirectExchange
+    routing-key: TestDirectRouting
+  test-topic:
+    queue:
+      first: topic.first
+      second: topic.second
+    exchange: topicExchange
+    routing-key:
+      first: topic.first
+      second: topic.second
+      all: topic.#

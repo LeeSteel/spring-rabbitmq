@@ -1,0 +1,33 @@
+server:
+  port: 8021
+spring:
+  #给项目来个名字
+  application:
+    name: rabbitmq-provider
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: 192.168.0.153
+    port: 5672
+    username: lg
+    password: 123456
+
+    #消息确认配置项
+    #确认消息已发送到交换机(Exchange)
+    publisher-confirms: true
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+
+rabbitmq:
+  test-direct:
+    queue: TestDirectQueue
+    exchange: TestDirectExchange
+    routing-key: TestDirectRouting
+  test-topic:
+    queue:
+      first: topic.first
+      second: topic.second
+    exchange: topicExchange
+    routing-key:
+      first: topic.first
+      second: topic.second
+      all: topic.#
